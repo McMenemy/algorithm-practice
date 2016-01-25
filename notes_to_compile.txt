@@ -1,0 +1,2 @@
+$ g++ program_name.cpp -o name_of_output_file
+$ ./name_of_output_file
