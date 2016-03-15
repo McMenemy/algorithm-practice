@@ -1,4 +1,5 @@
 import math
+from sympy import *
 
 def largest_n(funct):
     second = 1 * 1000
@@ -18,15 +19,6 @@ def largest_n(funct):
         result.append(largest_n_helper(funct, times[time_unit]))
 
     print result
-
-def largest_n_helper(funct, time):
-    run_time = 0
-    n = 0
-    print time
-    while run_time < time:
-        n += 100
-        run_time = funct(n)
-    return n
 
 def lg_n(n):
     return math.log10(n)
