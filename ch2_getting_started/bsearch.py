@@ -1,9 +1,9 @@
 import math
 
-def bsearch(arrray, target):
+def bsearch(array, target):
     length = len(array)
 
-    if len(array) == 0:
+    if length  == 0:
         return float('nan')
 
     mid = length / 2
@@ -11,6 +11,8 @@ def bsearch(arrray, target):
 
     if mid_val == target:
         return mid
+    if length == 1 and mid_val != target:
+        return float('nan')
 
     left = array[0:mid]
     right = array[mid:]
@@ -18,7 +20,7 @@ def bsearch(arrray, target):
     if mid_val > target:
         return bsearch(left, target)
     elif mid_val < target:
-        return mid_val + bsearch(right, target)
+        return mid + bsearch(right, target)
 
 array = [1, 2, 5, 6, 17, 22]
 print bsearch(array, 5)
