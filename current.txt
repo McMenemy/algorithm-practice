@@ -8,3 +8,6 @@ CLRS
 current page: 101 exercise 4.2-1 (do exercises 4.2-3, 4.2-4, 4.2-5)
 
 Algorithm Design:
+
+
+Cracking the Coding Interview:
