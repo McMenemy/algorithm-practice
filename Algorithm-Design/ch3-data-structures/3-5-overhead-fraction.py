@@ -15,4 +15,4 @@ extra_space_b = 4 * n
 total_space_b = data_space_b + extra_space_b
 
 print 'overhead fraction b: {}'.format(str(data_space_b / total_space_b))
-print 'symbolic: (2^(log2(n) - 1) * 4)((4 * n) + (2^(log2(n) - 1) * 4)'
+print 'symbolic: (2^(log2(n + 1) - 1) * 4) / ((4 * n) + (2^(log2(n) - 1) * 4)'

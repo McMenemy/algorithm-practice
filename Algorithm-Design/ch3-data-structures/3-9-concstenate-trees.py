@@ -1,0 +1,1 @@
+# take the max of the tree with larger values (S2) and take its min value and use it as the root for a new tree. Then set S1 as the left branch of the new tree and S2 (minus the min value) as the right branch.
