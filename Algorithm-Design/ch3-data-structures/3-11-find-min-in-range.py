@@ -1,5 +1,7 @@
 # make a pairing table with the answer for every i, j combination
 
+import math
+
 # part A
 class MinInRangeDict:
     def __init__(self, array):
@@ -55,20 +57,45 @@ class BetterMinRangeDict:
             return None
 
         parent_node = Node(min(array))
-        mid = len(array) / 2
+        mid = math.floor(len(array) / 2)
         parent_node.left_child = self.create_lookup_tree(array[0: mid])
         parent_node.right_child = self.create_lookup_tree(array[mid:])
         return parent_node
 
-    def get_min_in_range(i, j):
-        i_counter = 0
-        j_counter = 0
-        # continue here
+    def get_min_in_range(self, i, j):
+        i_bound = 0
+        j_bound = len(self.array)
+        mid_length = math.floor(len(self.array) / 2)
+        current_node = self.root
+        while True:
+            print('i bound', i_bound)
+            print('j bound', j_bound)
+            if self.is_between(i, j, i_bound, j_bound):
+                return current_node.value
+            elif i >= i_bound + mid_length:
+                current_node = current_node.right_child
+                i_bound += mid_length
+            elif j < j_bound - mid_length:
+                current_node = current_node.left_child
+                j_bound -= mid_length
+            elif current_node.left_child < current_node.right_child:
+                current_node = current_node.left_child
+                j_bound -= mid_length
+            elif current_node.left_child > current_node.right_child:
+                current_node = current_node.right_node
+                i_bound += mid_length
+            mid_length = (mid_length / 2)
+
+    def is_between(self, i, j, i_bound, j_bound):
+        return i_bound >= i and j_bound <= j
+
+
 
 dictB = BetterMinRangeDict([1, 6, 9, 3, 9, 4, 2])
-print(dictB.root.value)
-print(dictB.root.left_child.value)
-print(dictB.root.right_child.value)
-# print(dictB.min_in_range(0, 0))
-# print(dictB.min_in_range(0, 4))
-# print(dictB.min_in_range(2, 4))
+print(dictB.is_between(1, 5, 5, 7))
+# print(dictB.root)
+# print(dictB.root.left_child.value)
+# print(dictB.root.right_child.value)
+# print(dictB.get_min_in_range(0, 0))
+# print(dictB.get_min_in_range(0, 4))
+# print(dictB.get_min_in_range(2, 4))
