@@ -40,17 +40,21 @@ class PartialSumTree:
     def partial_sum(self, i):
         tree_i = self.len
         mid = math.floor(self.len / 2)
+        value = 0
         node = self.tree
         while True:
             if i == tree_i:
-                return node.value
-            elif i < (tree_i - mid):
+                return value + node.value
+            elif i <= (tree_i - mid):
                 tree_i -= mid
                 node = node.left_child
-            elif i >= (tree_i - mid):
+            elif i > (tree_i - mid):
+                value += node.left_child.value
                 node = node.right_child
             mid = math.floor(mid / 2)
 
 tree = PartialSumTree([1, 3, 2, 5])
-print(tree.tree.value)
+print(tree.partial_sum(1))
 print(tree.partial_sum(2))
+print(tree.partial_sum(3))
+print(tree.partial_sum(4))
