@@ -9,7 +9,7 @@ current page: 101 exercise 4.2-1 (do exercises 4.2-3, 4.2-4, 4.2-5)
 
 Algorithm Design:
 solution website: http://www.algorithm.cs.sunysb.edu/algowiki/index.php/The_Algorithms_Design_Manual_(Second_Edition)
-current page: 127 4.3.4; Exercise 3.23
+current page: 127 4.3.5; Exercise 3.23
 
 
 Cracking the Coding Interview:
