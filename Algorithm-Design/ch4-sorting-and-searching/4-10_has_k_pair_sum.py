@@ -1,55 +1,41 @@
-def does_include(array, target):
-    if len(array) == 0:
-        return False
+def has_sum_pair_sorted(array, sum):
+    num_dict = {}
 
-    mid_idx = math.ceil((len(array)-1) / 2)
-    mid = array[mid_idx]
-    left = array[0:mid_idx]
-    right = array[mid_idx+1:]
+    for num in array:
+        if num in num_dict:
+            num_dict[num] += 1
+        else:
+            num_dict[num] = 1
 
-    if mid == target:
-        return True
-    elif mid < target:
-        return does_include(right, target)
-    elif mid > target:
-        return does_include(left, target)
-
-def has_sum_pair(array, sum):
     for num in array:
         target = sum - num
-        if does_include(array, target):
-            return True
+        if target in num_dict:
+            # to not count the same num twice
+            if target != num:
+                return True
+            elif num_dict[target] > 1:
+                return True
 
     return False
 
-def update_loop_idxs(loop_idxs, array_len):
-    # this will find the current loop that needs iterated (aka cutoff_loop)
-    cutoff_loop = 0
-    for i, current_idx in enumerate(loop_idxs[::-1]):
-        max_idx = array_len - i
-        if current_idx < max_idx:
-            cutoff_loop = i
-            loop_idxs[i] += 1
-    # this will reset all inner loop counters inside the cutoff_loop
-    for loop_idx in loop_idxs[::-1]
+def is_k_sum(array, k, sum):
+    array = sorted(array)
+    if k == 2:
+        return has_sum_pair_sorted(array, sum)
 
-def has_k_pair_sum(array, k, sum):
-    sorted_array = array.sort()
+    i = 0
+    while i < len(array):
+        target = sum - array[i]
+        current_array = []
+        current_k = k - 1
+        for i2, num in enumerate(array):
+            if i != i2:
+                current_array.append(num)
+        if is_k_sum(current_array, current_k, target):
+            return True
+        i += 1
 
-    loop_idxs = []
-    for i in range(k-1):
-        idx.append(i)
+    return False
 
-    current_loop_idx = len(loop_idxs)-1
-    while loop_idxs[0] < len(array) - k
-        most_inner_idx = loop_idxs[-1]
-        while most_inner_idx < len(array)
-            current_sum = 0
-            for i in loop_idxs:
-                current_sum += array[loop_idxs[i]]
-            target_sum = sum - current_sum
-            if has_sum_pair(array[loop_idxs[-1]:], target_sum): # log(n) bsearch
-                return True
-            most_inner_idx += 1
-
-        update_loop_idxs(loop_idxs, len(array))
+print(is_k_sum([1, 2, 3, 4, 5], 3, 12))
+print(is_k_sum([1, 2, 3, 4, 5], 3, 13))
