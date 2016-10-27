@@ -8,8 +8,8 @@ CLRS
 current page: 101 exercise 4.2-1 (do exercises 4.2-3, 4.2-4, 4.2-5)
 
 Algorithm Design:
-solution website: http://www.algorithm.cs.sunysb.edu/algowiki/index.php/The_Algorithms_Design_Manual_(Second_Edition)
-current page: 149 4.11; Exercise 3.23
-
+solution website:
+	http://www.algorithm.cs.sunysb.edu/algowiki/index.php/The_Algorithms_Design_Manual_(Second_Edition)
+current page: 121 Section 4.3.1 Heaps
 
 Cracking the Coding Interview:
