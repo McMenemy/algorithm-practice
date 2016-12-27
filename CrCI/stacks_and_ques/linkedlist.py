@@ -6,7 +6,6 @@ class Node:
 
 class LinkedList():
 	def __init__(self, values=None):
-		self.values = values
 		self.head = None
 		self.tail = None
 		self.len = 0
@@ -40,7 +39,8 @@ class LinkedList():
 class DoublyLinkedList(LinkedList):
 	def add(self, value):
 		new_node = Node(value)
-		if self.head:
+		self.len += 1
+		if self.tail and self.head:
 			self.tail.child = new_node
 			new_node.parent = self.tail
 			self.tail = new_node
